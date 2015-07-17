@@ -71,16 +71,16 @@
                   {{ comment.body }}<br>
                   <cite>{{ comment.author }}</cite>
                 </blockquote>
-                <form name="comment-form" ng-controller="PostCommentsController as pc"
-                                          ng-submit="pc.addComment(post)">
+                <form name="commentForm" ng-controller="PostCommentsController as pc"
+                                          ng-submit="pc.addComment(post)" novalidate>
                   <h4>Add new comment</h4>
-                  <blockquote ng-show="pc.comment.body">
+                  <blockquote ng-show="pc.comment.body || pc.comment.stars || pc.comment.author">
                     <b>{{ pc.comment.stars }} Stars</b>
                     {{ pc.comment.body }}<br>
                     <cite>{{ pc.comment.author }}</cite>
                   </blockquote>
                   <div class="form-group">
-                    <select ng-model="pc.comment.stars" class="form-control">
+                    <select ng-model="pc.comment.stars" class="form-control" required>
                       <option value="">-</option>
                       <option value="3">3</option>
                       <option value="2">2</option>
@@ -88,11 +88,12 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <textarea ng-model="pc.comment.body" class="form-control" placeholder="enter comment here.."></textarea>
+                    <textarea ng-model="pc.comment.body" class="form-control" placeholder="enter comment here.." required></textarea>
                   </div>
                   <div class="form-group">
-                    <input type="text" ng-model="pc.comment.author" class="form-control" placeholder="enter your name here..">
+                    <input type="email" ng-model="pc.comment.author" class="form-control" placeholder="enter your name here.." required>
                   </div>
+                  <div>Comment form is {{ commentForm.$valid }}</div>
                   <div class="form-group">
                     <button type="submit" class="btn btn-success">Submit</button>
                   </div>
