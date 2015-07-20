@@ -1,0 +1,14 @@
+{
+  "name": "studentbook-api",
+  "version": "0.0.1",
+  "main": "server.js",
+  "author": "Sirbu Nicolae-Cezar",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "mongoose": "~3.0.0",
+    "node-restful": "0.1.18",
+    "socket.io": "1.2.0"
+  }
+}

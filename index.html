@@ -3,7 +3,6 @@
 <head>
   <title>Blog App</title>
   <link rel="stylesheet" media="all" href="css/bootstrap.min.css">
-  <link rel="stylesheet" media="all" href="css/bootstrap-theme.css">
   <link rel="stylesheet" media="all" href="css/custom.css">
 </head>
 <body>
@@ -57,7 +56,7 @@
               <p>{{ post.content }}</p>
             </div>
             <div class="tags">
-              <span ng-repeat="tag in post.tags" class="label label-success">{{ tag }}</span>
+              <span ng-repeat="tag in post.tags" class="label label-success">{{ tag.content }}</span>
             </div>
           </div>
         </div>
@@ -72,7 +71,7 @@
                   <cite>{{ comment.author }}</cite>
                 </blockquote>
                 <form name="commentForm" ng-controller="PostCommentsController as pc"
-                                          ng-submit="pc.addComment(post)" novalidate>
+                                          ng-submit="commentForm.$valid && pc.addComment(post)" novalidate>
                   <h4>Add new comment</h4>
                   <blockquote ng-show="pc.comment.body || pc.comment.stars || pc.comment.author">
                     <b>{{ pc.comment.stars }} Stars</b>

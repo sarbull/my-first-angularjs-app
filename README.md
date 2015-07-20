@@ -1,4 +1,4 @@
 # my-first-angularjs-app
 
 ## Blog example
-This app is using AngularJS, Twitter Bootstrap and jQuery.
+This app is using AngularJS and Twitter Bootstrap with jQuery.
